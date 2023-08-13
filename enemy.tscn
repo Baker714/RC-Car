@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://rmay3y72hqns"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_0i6j3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3ors"]
+radius = 252.223
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epj6m"]
+size = Vector2(42.7915, 43.2029)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kabp0"]
+size = Vector2(32.0936, 32.9165)
+
+[node name="Enemy" type="StaticBody2D"]
+scale = Vector2(2.43039, 2.43039)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_0i6j3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_j3ors")
+
+[node name="body" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+offset = Vector2(0, -8)
+polygon = PackedVector2Array(-16, -8, 16, -8, 16, 25, -16, 25)
+
+[node name="barrel" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-28, -4, 0, -4, 0, 4, -28, 4)
+
+[node name="Marker2D" type="Marker2D" parent="barrel"]
+position = Vector2(-32.5051, 0)
+
+[node name="bodyCollider" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyCollider"]
+position = Vector2(-6.86692e-07, 0.205729)
+shape = SubResource("RectangleShape2D_epj6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.411455)
+shape = SubResource("RectangleShape2D_kabp0")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="bodyCollider" to="." method="_on_body_collider_body_entered"]

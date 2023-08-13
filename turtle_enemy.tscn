@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://4tgvnb0miqro"]
+
+[ext_resource type="Texture2D" uid="uid://c82vlophsjqtj" path="res://assets/pixel-art-illustration-turtle-pixelated-600w-2322753119.png" id="1_gb677"]
+
+[node name="EnemyTurtle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.180849, 0.375969)
+scale = Vector2(0.204286, 0.204286)
+texture = ExtResource("1_gb677")
+offset = Vector2(3.19602, -6.64431)
+region_enabled = true
+region_rect = Rect2(100.3, 105.656, 424.016, 382.017)

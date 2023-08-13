@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://6nsgg0e2x3rt"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_g5x2m"]
+[ext_resource type="Texture2D" uid="uid://c7b30m3gkup2p" path="res://assets/rc-car.png" id="2_rh3au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q2cd"]
+size = Vector2(110, 174.545)
+
+[node name="Car" type="CharacterBody2D"]
+scale = Vector2(0.492711, 0.492711)
+script = ExtResource("1_g5x2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.81064e-06)
+shape = SubResource("RectangleShape2D_2q2cd")
+
+[node name="Straight" type="Marker2D" parent="."]
+position = Vector2(0, -129.894)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rh3au")
+
+[node name="DriftRight" type="Marker2D" parent="."]
+position = Vector2(129.894, -129.894)
+
+[node name="DriftLeft" type="Marker2D" parent="."]
+position = Vector2(-129.894, -129.894)
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(0, -105.539)
